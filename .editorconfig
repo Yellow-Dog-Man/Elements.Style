@@ -1,0 +1,178 @@
+# Based on: https://github.com/RehanSaeed/EditorConfig
+# See http://EditorConfig.org for more information about .editorconfig files.
+
+##########################################
+# Common Settings
+##########################################
+
+# This file is the top-most EditorConfig file
+root = true
+
+# All Files
+[*]
+charset = utf-8-bom
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+##########################################
+# File Extension Settings
+##########################################
+
+# Visual Studio Solution Files
+[*.sln]
+indent_style = tab
+
+# Visual Studio XML Project Files
+[*.{csproj,vbproj,vcxproj.filters,proj,projitems,shproj}]
+indent_size = 2
+
+# XML Configuration Files
+[*.{xml,config,props,targets,nuspec,resx,ruleset,vsixmanifest,vsct}]
+indent_size = 2
+
+# JSON Files
+[*.{json,json5,webmanifest}]
+indent_size = 2
+
+# YAML Files
+[*.{yml,yaml}]
+indent_size = 2
+
+# Markdown Files
+[*.{md,mdx}]
+trim_trailing_whitespace = false
+
+# Web Files
+[*.{htm,html,js,jsm,ts,tsx,cjs,cts,ctsx,mjs,mts,mtsx,css,sass,scss,less,pcss,svg,vue}]
+indent_size = 2
+
+# Batch Files
+[*.{cmd,bat}]
+end_of_line = crlf
+
+# Bash Files
+[*.sh]
+charset = utf-8
+end_of_line = lf
+
+# Makefiles
+[Makefile]
+indent_style = tab
+
+# Verify settings for snapshot testing
+[*.{received,verified}.{json,txt,xml}]
+charset = "utf-8-bom"
+end_of_line = lf
+indent_size = unset
+indent_style = unset
+insert_final_newline = false
+tab_width = unset
+trim_trailing_whitespace = false
+
+[*.cs]
+#### C# Coding Conventions ####
+
+# See Issue list for commentary on status and TODO's here
+
+# CS0649(https://learn.microsoft.com/en-us/dotnet/csharp/misc/cs0649) is "Field 'field' is never assigned to"
+# However, this flags every single Sync or Sync like field that we have as these are initialized automatically by FrooxEngine
+# So this rule is disabled for now as the warning list becomes very unwieldy if it is enabled
+# There may be a way in the future to specify to ignore this rule for certain Types, in which case anything in the Sync* area should be added to that list.
+# TODO: Make GH about this - Prime
+dotnet_diagnostic.CS0649.severity = none
+
+# #### Naming styles ####
+
+# Naming rules
+# https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/naming-rules for documentation.
+
+# Set Naming rules all generate at the warning level.
+dotnet_diagnostic.IDE1006.severity = warning
+
+# They'll be a little unwieldy to read, unless you read the documentation first. The Comments try to help
+
+# Styles
+# These are referred to later in the file, in individual rules, It's sorta similar to CSS variables in that we define them up here, then use them later.
+
+# Begins with i, Used in interfaces
+dotnet_naming_style.begins_with_i.required_prefix = I
+dotnet_naming_style.begins_with_i.required_suffix =
+dotnet_naming_style.begins_with_i.word_separator =
+dotnet_naming_style.begins_with_i.capitalization = pascal_case
+
+# PascalCase General use
+dotnet_naming_style.pascal_case.required_prefix =
+dotnet_naming_style.pascal_case.required_suffix =
+dotnet_naming_style.pascal_case.word_separator =
+dotnet_naming_style.pascal_case.capitalization = pascal_case
+
+# camelCase General use
+dotnet_naming_style.camel_case.required_prefix =
+dotnet_naming_style.camel_case.required_suffix =
+dotnet_naming_style.camel_case.word_separator =
+dotnet_naming_style.camel_case.capitalization = camel_case
+
+# Interfaces
+
+## Interface Group
+dotnet_naming_symbols.interface.applicable_kinds = interface
+dotnet_naming_symbols.interface.applicable_accessibilities = public, internal, private, protected, protected_internal, private_protected
+#dotnet_naming_symbols.interface.required_modifiers =
+
+## Rule: Interfaces must begin with I
+dotnet_naming_rule.interface_should_be_begins_with_i.severity = warning
+dotnet_naming_rule.interface_should_be_begins_with_i.symbols = interface
+dotnet_naming_rule.interface_should_be_begins_with_i.style = begins_with_i
+
+# Public Symbols
+
+## Public Symbols Group
+dotnet_naming_symbols.public_symbols.applicable_kinds = property,method,field,event,delegate,types
+dotnet_naming_symbols.public_symbols.applicable_accessibilities = public
+#dotnet_naming_symbols.public_symbols.required_modifiers =
+
+## Rule: Public Symbols must be PascalCase e.g. Tool.Equip() and not Tool.equip()
+dotnet_naming_rule.public_members_must_be_pascal.severity = warning
+dotnet_naming_rule.public_members_must_be_pascal.symbols  = public_symbols
+dotnet_naming_rule.public_members_must_be_pascal.style = pascal_case
+
+# Local Symbols (Local Variables)
+## Local Symbols Group:
+dotnet_naming_symbols.local.applicable_kinds= local, local_function
+dotnet_naming_symbols.local.applicable_accessibilities = *
+#dotnet_naming_symbols.local.required_modifiers =
+
+## Rule: Local Symbols must be camelCase, e.g. var localVariable = "cheese" and not var LocalVariable = "cheese"
+dotnet_naming_rule.local_symbols_must_be_camel.severity = warning
+dotnet_naming_rule.local_symbols_must_be_camel.symbols = local
+dotnet_naming_rule.local_symbols_must_be_camel.style = camel_case
+
+# Types (Top level items in a file, including namespace)
+
+## Types Group
+dotnet_naming_symbols.types.applicable_kinds = namespace, class, struct, enum
+dotnet_naming_symbols.local.applicable_accessibilities = *
+#dotnet_naming_symbols.local.required_modifiers =
+
+# Rule: types should be PascalCase E.g. GrabbableReceiverSurface and not grabbableReceiverSurface
+dotnet_naming_rule.types_should_be_pascal_case.severity = warning
+dotnet_naming_rule.types_should_be_pascal_case.symbols = types
+dotnet_naming_rule.types_should_be_pascal_case.style = pascal_case
+
+# Parameters
+## Parameters Group
+dotnet_naming_symbols.parameters.applicable_kinds = parameter
+dotnet_naming_symbols.parameters.applicable_accessibilities = *
+#dotnet_naming_symbols.local.required_modifiers =
+
+## Rule: Parameters must be camel case. e.g. add(int numberOne, two) and not add(int NumberOne, Two)
+dotnet_naming_rule.parameters_must_be_camel_case.severity = warning
+dotnet_naming_rule.parameters_must_be_camel_case.symbols = parameters
+dotnet_naming_rule.parameters_must_be_camel_case.style = camel_case
+
+# TODO: Some of the Generated code across YDMS doesn't follow this, In FrooxEngine we have a huge list of Generated files.
+# Prime, Open a GH issue for FrooxEngine to move these files to *.g.cs. Will have to do it all at once.
+[*.g.cs]
+generated_code = true
