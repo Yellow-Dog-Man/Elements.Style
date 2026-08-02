@@ -9,4 +9,7 @@
           SkipUnchangedFiles="true" />
 
   </Target>
+  <Target Name="Elements.Style.MissConfigured" BeforeTargets="BeforeBuild" Condition="'$(RepositoryRoot)' == ''">
+    <Message Importance="High" Text="Elements.Style requires a defined <RepositoryRoot> to function" />
+  </Target>
 </Project>

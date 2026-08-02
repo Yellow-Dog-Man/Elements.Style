@@ -69,6 +69,8 @@ By packing a .props and .targets file in `buildTransitive` folder, that have the
 1. The .targets within the Targets file will run
 2. The .props within the Props file will be included.
 
+These items when combined, allow us to place style rules etc within your project.
+
 ## References & Resources
 
 ### Packing and Distribution of .NET Props and Code Style

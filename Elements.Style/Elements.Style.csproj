@@ -11,10 +11,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="YellowDogMan.Elements.Style.props"
-          Pack="true" PackagePath="buildTransitive\" />
-    <None Include="YellowDogMan.Elements.Style.targets"
-          Pack="true" PackagePath="buildTransitive\" />
+    <!-- We MUST package these files with their full NugetPackage Name, they are named without the prefix in this repo for ease of use.-->
+    <None Include="Elements.Style.props"
+          Pack="true" PackagePath="buildTransitive\YellowDogMan.Elements.Style.props" />
+    <None Include="Elements.Style.targets"
+          Pack="true" PackagePath="buildTransitive\YellowDogMan.Elements.Style.targets" />
 
     <!-- We package .editorconfig as a .txt, to avoid issues with dotfiles and nuget -->
     <None Include="..\.editorconfig"
