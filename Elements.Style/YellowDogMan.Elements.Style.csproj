@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>YellowDogMan.Elements.Style</PackageId>
+    <Description>Shared build and code style defaults for Yellow Dog Man Studios / Resonite projects.</Description>
+
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <DevelopmentDependency>true</DevelopmentDependency>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="YellowDogMan.Elements.Style.props"
+          Pack="true" PackagePath="buildTransitive\" />
+    <None Include="YellowDogMan.Elements.Style.targets"
+          Pack="true" PackagePath="buildTransitive\" />
+
+    <!-- We package .editorconfig as a .txt, to avoid issues with dotfiles and nuget -->
+    <None Include="..\.editorconfig"
+          Pack="true" PackagePath="content\editorconfig.txt" />
+  </ItemGroup>
+</Project>

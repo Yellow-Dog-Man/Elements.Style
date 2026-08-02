@@ -1,6 +1,9 @@
 # Based on: https://github.com/RehanSaeed/EditorConfig
 # See http://EditorConfig.org for more information about .editorconfig files.
 
+# ONLY EDIT in https://github.com/Yellow-Dog-Man/Elements.Style CONTEXTS
+# Otherwise it will be overwritten
+
 ##########################################
 # Common Settings
 ##########################################

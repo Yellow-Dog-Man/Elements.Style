@@ -1,0 +1,12 @@
+<Project>
+  <Target Name="Elements.Style.SyncConfig"
+          BeforeTargets="BeforeBuild"
+          Condition="'$(RepositoryRoot)' != ''">
+
+    <!-- We package .editorconfig as a .txt, to avoid issues with dotfiles and nuget -->
+    <Copy SourceFiles="$(MSBuildThisFileDirectory)..\content\editorconfig.txt"
+          DestinationFiles="$(RepositoryRoot).editorconfig"
+          SkipUnchangedFiles="true" />
+
+  </Target>
+</Project>
