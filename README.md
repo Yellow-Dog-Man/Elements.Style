@@ -17,3 +17,10 @@ As YDMS increases the amount of Open Source Software it produces, the question o
 A shared collection of rules and settings for various file types. Full documentation is available on [the editor config website](http://EditorConfig.org)
 
 Uses [RehanSaeed's Editor Config](https://github.com/RehanSaeed/EditorConfig) as a base.
+
+
+## References & Resources
+
+### Packing and Distribution of .NET Props and Code Style
+- [Kwality.CodeStyle](https://github.com/dotnet-essentials/Kwality.CodeStyle)
+- [SimonCropp/ProjectDefaults](https://github.com/SimonCropp/ProjectDefaults)
