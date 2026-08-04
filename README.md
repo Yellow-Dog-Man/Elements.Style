@@ -81,6 +81,9 @@ Elements.Style.Test exists purely as a test project to test Elements.Style. To t
 
 ## References & Resources
 
+### MSBuild
+- [DotMorten's MSBuild CheatSheet](https://gist.github.com/dotMorten/7db5cc3ae4ab72db784df0793b45d6ac)
+
 ### Packing and Distribution of .NET Props and Code Style
 - [Kwality.CodeStyle](https://github.com/dotnet-essentials/Kwality.CodeStyle)
 - [SimonCropp/ProjectDefaults](https://github.com/SimonCropp/ProjectDefaults)
