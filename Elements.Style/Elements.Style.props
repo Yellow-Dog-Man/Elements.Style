@@ -2,4 +2,8 @@
   <PropertyGroup>
     <!--Common CSProject rules and properties here-->
   </PropertyGroup>
+
+  <PropertyGroup>
+    <RepositoryRoot Condition="'$(SolutionDir)' != '' AND '$(RepositoryRoot)' == ''">$(SolutionDir)</RepositoryRoot>
+  </PropertyGroup>
 </Project>

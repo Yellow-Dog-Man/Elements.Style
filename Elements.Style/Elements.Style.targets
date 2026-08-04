@@ -1,15 +1,15 @@
-<Project>
-  <Target Name="Elements.Style.SyncConfig"
+﻿<Project>
+  <Target Name="ElementsStyleSyncConfig"
           BeforeTargets="BeforeBuild"
           Condition="'$(RepositoryRoot)' != ''">
 
     <!-- We package .editorconfig as a .txt, to avoid issues with dotfiles and nuget -->
-    <Copy SourceFiles="$(MSBuildThisFileDirectory)..\content\editorconfig.txt"
+    <Copy SourceFiles="$(MSBuildThisFileDirectory)..\content\.editorconfig"
           DestinationFiles="$(RepositoryRoot).editorconfig"
           SkipUnchangedFiles="true" />
 
   </Target>
-  <Target Name="Elements.Style.MissConfigured" BeforeTargets="BeforeBuild" Condition="'$(RepositoryRoot)' == ''">
-    <Message Importance="High" Text="Elements.Style requires a defined <RepositoryRoot> to function" />
+  <Target Name="ElementsStyleMissConfigured" BeforeTargets="BeforeBuild" Condition="'$(RepositoryRoot)' == ''">
+    <Message Importance="High" Text="Elements.Style requires a defined RepositoryRoot to function" />
   </Target>
 </Project>

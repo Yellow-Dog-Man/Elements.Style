@@ -31,10 +31,10 @@ To use Elements.Style in your project:
 ```
 
 And populated with your Repository root. Common values for this can be found:
--  By using `<SolutionDir>` as in: `<RepositoryRoot>$(SolutionDir)</RepositoryRoot>`
-- By using `$(MSBuildThisFileDirectory)` as in: `<RepositoryRoot>$(SolutionDir)</RepositoryRoot>`
+- By using `<SolutionDir>` as in: `<RepositoryRoot>$(SolutionDir)</RepositoryRoot>`
+- By using `$(MSBuildThisFileDirectory)` as in: `<RepositoryRoot>$(MSBuildThisFileDirectory)</RepositoryRoot>`
 
-TODO: We'd love to make this automatic, See #TODO on the issue tracker for more information.
+We've made some automation to try and do this for you, but it might not work correctly. See https://github.com/Yellow-Dog-Man/Elements.Style/issues/4 for more information
 
 3. Build your project, it'll copy relevant files to their correct location.
 
@@ -70,6 +70,14 @@ By packing a .props and .targets file in `buildTransitive` folder, that have the
 2. The .props within the Props file will be included.
 
 These items when combined, allow us to place style rules etc within your project.
+
+
+## Testing Locally
+
+Elements.Style.Test exists purely as a test project to test Elements.Style. To test new versions locally:
+1. cd into `Elements.Style`
+2. `dotnet pack -c Release -p:Version=0.0.1-local.<x>` where `x` is a version number
+3. Update the `<PackageReference>` in `Elements.Style.Test.csproj` with the new number.
 
 ## References & Resources
 

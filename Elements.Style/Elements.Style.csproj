@@ -19,6 +19,6 @@
 
     <!-- We package .editorconfig as a .txt, to avoid issues with dotfiles and nuget -->
     <None Include="..\.editorconfig"
-          Pack="true" PackagePath="content\editorconfig.txt" />
+          Pack="true" PackagePath="content\.editorconfig" />
   </ItemGroup>
 </Project>
