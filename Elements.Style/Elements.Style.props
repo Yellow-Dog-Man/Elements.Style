@@ -1,8 +1,10 @@
 <Project>
   <PropertyGroup>
     <!--Common CSProject rules and properties here-->
+    <ElementsStyeVersion>$(PackageVersion)</ElementsStyeVersion>
   </PropertyGroup>
 
+  <!--Automatic/Logic based rules-->
   <PropertyGroup>
     <RepositoryRoot Condition="'$(SolutionDir)' != '' AND '$(RepositoryRoot)' == ''">$(SolutionDir)</RepositoryRoot>
   </PropertyGroup>

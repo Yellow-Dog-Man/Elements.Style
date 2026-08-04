@@ -17,8 +17,23 @@
     <None Include="Elements.Style.targets"
           Pack="true" PackagePath="buildTransitive\YellowDogMan.Elements.Style.targets" />
 
-    <!-- We package .editorconfig as a .txt, to avoid issues with dotfiles and nuget -->
-    <None Include="..\.editorconfig"
-          Pack="true" PackagePath="content\.editorconfig" />
+    <None Include="..\.editorconfig"/>
   </ItemGroup>
+
+  <!--Puts the Version number on the top of the .editorconfig file in the package. Allows us to monitor what version is copied-->
+  <Target Name="AddMetadataToEditorConfig" BeforeTargets="BeforeBuild;BeforeCompile;_GetPackageFiles">
+    <PropertyGroup>
+      <StampedEditorConfigPath>$(IntermediateOutputPath)stamped\.editorconfig</StampedEditorConfigPath>
+    </PropertyGroup>
+    <ReadLinesFromFile File="$(MSBuildProjectDirectory)\..\.editorconfig">
+      <Output TaskParameter="Lines" ItemName="EditorConfigLines" />
+    </ReadLinesFromFile>
+    <MakeDir Directories="$(IntermediateOutputPath)stamped" />
+    <WriteLinesToFile File="$(StampedEditorConfigPath)" Lines="# Version: $(PackageVersion)" Overwrite="true" />
+    <WriteLinesToFile File="$(StampedEditorConfigPath)" Lines="@(EditorConfigLines)" Overwrite="false" />
+    <ItemGroup>
+      <None Remove="..\.editorconfig" />
+      <None Include="$(StampedEditorConfigPath)" Pack="true" PackagePath="content\.editorconfig" />
+    </ItemGroup>
+  </Target>
 </Project>
