@@ -75,9 +75,14 @@ tab_width = unset
 trim_trailing_whitespace = false
 
 [*.cs]
+
+### C# standard formatting
+end_of_line = lf
+
 #### C# Coding Conventions ####
 
 # See Issue list for commentary on status and TODO's here
+# TODO: Maybe we can transpile this stuff? its unwieldy!
 
 # CS0649(https://learn.microsoft.com/en-us/dotnet/csharp/misc/cs0649) is "Field 'field' is never assigned to"
 # However, this flags every single Sync or Sync like field that we have as these are initialized automatically by FrooxEngine
