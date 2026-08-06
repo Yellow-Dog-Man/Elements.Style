@@ -2,7 +2,18 @@
   <PropertyGroup>
     <!--Common CSProject rules and properties here-->
     <ElementsStyeVersion>$(PackageVersion)</ElementsStyeVersion>
+
+    <!-- These properties only apply, if the property is not set locally(in the consuming project)-->
+    <Company Condition="'$(Company)' == ''">Yellow Dog Man Studios</Company>
+    <Copyright Condition="'$(Copyright)' == ''">Copyright (c) Yellow Dog Man Studios s.r.o.</Copyright>
+    <Authors Condition="'$(Authors)' == ''">Yellow Dog Man Studios</Authors>
+
+    <PackageIcon Condition="'$(PackageIcon)' == ''">Images\icon.png</PackageIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Condition="'$(PackageIcon)' == 'Images\icon.png'" Include="$(MSBuildThisFileDirectory)..\Images\icon.png" Pack="true" PackagePath="Images\" />
+  </ItemGroup>
 
   <!--Automatic/Logic based rules-->
   <PropertyGroup>
