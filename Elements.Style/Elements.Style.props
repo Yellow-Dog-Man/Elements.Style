@@ -8,11 +8,18 @@
     <Copyright Condition="'$(Copyright)' == ''">Copyright (c) Yellow Dog Man Studios s.r.o.</Copyright>
     <Authors Condition="'$(Authors)' == ''">Yellow Dog Man Studios</Authors>
 
-    <PackageIcon Condition="'$(PackageIcon)' == ''">Images\icon.png</PackageIcon>
+    <DefaultIcon Condition="'$(PackageIcon)' == ''">true</DefaultIcon>
+    <PackageIcon Condition="'$(DefaultIcon)' == 'true'">icon.png</PackageIcon>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Condition="'$(PackageIcon)' == 'Images\icon.png'" Include="$(MSBuildThisFileDirectory)..\Images\icon.png" Pack="true" PackagePath="Images\" />
+  <!-- When building Elements.Style itself -->
+  <ItemGroup Condition="'$(DefaultIcon)' == 'true' AND '$(MSBuildProjectName)' == 'Elements.Style'">
+    <None Include="$(MSBuildThisFileDirectory)..\Images\icon.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <!-- When consumed as a NuGet package -->
+  <ItemGroup Condition="'$(DefaultIcon)' == 'true' AND '$(MSBuildProjectName)' != 'Elements.Style'">
+    <None Include="$(MSBuildThisFileDirectory)..\icon.png" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <!--Automatic/Logic based rules-->
