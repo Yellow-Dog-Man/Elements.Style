@@ -3,6 +3,14 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>YellowDogMan.Elements.Style</PackageId>
     <Description>Shared build and code style defaults for Yellow Dog Man Studios / Resonite projects.</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/Yellow-Dog-Man/Elements.Style</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://yellowdogman.com/</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>codestyle, style, lint</PackageTags>
 
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <NoDefaultExcludes>true</NoDefaultExcludes>
@@ -20,6 +28,8 @@
           Pack="true" PackagePath="buildTransitive\YellowDogMan.Elements.Style.targets" />
 
     <None Include="..\.editorconfig"/>
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+    <None Include"..\LICENSE" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <!--Puts the Version number on the top of the .editorconfig file in the package. Allows us to monitor what version is copied, in projects that implement-->
