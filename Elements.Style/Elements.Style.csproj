@@ -9,6 +9,8 @@
     <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
     <DevelopmentDependency>true</DevelopmentDependency>
   </PropertyGroup>
+  
+  <Import Project="$(MSBuildThisFileDirectory)/Elements.Style.props"/>
 
   <ItemGroup>
     <!-- We MUST package these files with their full NugetPackage Name, they are named without the prefix in this repo for ease of use.-->
