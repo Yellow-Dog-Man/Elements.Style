@@ -1,4 +1,4 @@
-# Elements.Style (WIP)
+﻿# Elements.Style (WIP)
 
 Aims to be, shared code style/project configuration for Yellow Dog Man Studios(YDMS) Projects.
 
@@ -80,6 +80,9 @@ Elements.Style.Test exists purely as a test project to test Elements.Style. To t
 3. Update the `<PackageReference>` in `Elements.Style.Test.csproj` with the new number.
 
 ## References & Resources
+
+## Style Rules
+- [Overview of .NET source code analysis](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview?tabs=net-10#code-style-analysis)
 
 ### MSBuild
 - [DotMorten's MSBuild CheatSheet](https://gist.github.com/dotMorten/7db5cc3ae4ab72db784df0793b45d6ac)
