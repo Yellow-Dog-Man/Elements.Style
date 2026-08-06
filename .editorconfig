@@ -181,6 +181,24 @@ dotnet_naming_rule.parameters_must_be_camel_case.severity = warning
 dotnet_naming_rule.parameters_must_be_camel_case.symbols = parameters
 dotnet_naming_rule.parameters_must_be_camel_case.style = camel_case
 
+#For the following rules to work, this must be set to warning or error, warning is better:
+dotnet_diagnostic.IDE0055.severity = warning
+
+## Curly Braces Stuff, Conditions and Formatting
+#https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0011
+
+csharp_prefer_braces = when_multiline:warn 
+
+# https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/csharp-formatting-options#new-line-options
+csharp_new_line_before_open_brace = all
+
+csharp_new_line_before_else = true
+csharp_new_line_before_catch = true
+csharp_new_line_before_finally = true
+
+csharp_new_line_before_members_in_object_initializers = true
+csharp_new_line_before_members_in_anonymous_types = true
+
 # TODO: Some of the Generated code across YDMS doesn't follow this, In FrooxEngine we have a huge list of Generated files.
 # Prime, Open a GH issue for FrooxEngine to move these files to *.g.cs. Will have to do it all at once.
 [*.g.cs]
